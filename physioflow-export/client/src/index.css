@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/*
+  PhysioFlow design tokens.
+  Brand direction: deep navy / clinical blue, soft blue-gray surfaces, white cards,
+  dark text, restrained semantic accents. Deliberately NOT a generic bright-blue SaaS palette.
+*/
+@theme {
+  --color-primary: #6c5ce7;
+  --color-accent-teal: #14b8a6;
+  --color-accent-blue: #3b82f6;
+  --color-accent-green: #22c55e;
+  --color-accent-pink: #ec4899;
+  --color-accent-amber: #f59e0b;
+  /* Brand — deep navy and measured teal accents for a calm clinical command center. */
+  --color-brand-950: #071522;
+  --color-brand-900: #0b2133;
+  --color-brand-800: #10364a;
+  --color-brand-700: #124a5b;
+  --color-brand-600: #176477;
+  --color-brand-500: #238a91;
+  --color-brand-400: #51aeb0;
+  --color-brand-300: #91d0cc;
+  --color-brand-200: #c7e5e1;
+  --color-brand-100: #dff1ee;
+  --color-brand-50: #f0f8f7;
+  --color-teal-700: #0f6b70;
+  --color-teal-500: #2c9b9a;
+  --color-teal-100: #d9f1ee;
+
+  /* Neutral surfaces — soft blue-gray, not pure gray */
+  --color-surface: #0a0a0a;
+  --color-surface-raised: #ffffff;
+  --color-surface-sunken: #e8eff0;
+  --color-border: #dbe6e7;
+  --color-border-strong: #c2d3d5;
+
+  /* Text */
+  --color-ink-900: #151515;
+  --color-ink-700: #3b5560;
+  --color-ink-500: #6b8188;
+  --color-ink-400: #96a9ad;
+
+  /* Semantic — used sparingly and only for their meaning, never decoratively */
+  --color-positive-50: #ecfdf5;
+  --color-positive-500: #16a34a;
+  --color-positive-700: #166534;
+
+  --color-attention-50: #fffbeb;
+  --color-attention-500: #d97706;
+  --color-attention-700: #92400e;
+
+  --color-urgent-50: #fef2f2;
+  --color-urgent-500: #dc2626;
+  --color-urgent-700: #991b1b;
+
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --radius-card: 1rem;
+  --radius-panel: 1rem;
+  --radius-pill: 9999px;
+  --radius-control: 0.625rem;
+
+  --shadow-card: 0 1px 2px 0 rgb(7 21 34 / 0.03), 0 10px 28px -18px rgb(7 21 34 / 0.22);
+  --shadow-raised: 0 16px 36px -18px rgb(7 21 34 / 0.28), 0 4px 8px -4px rgb(7 21 34 / 0.12);
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-surface text-ink-900 antialiased;
+    font-feature-settings: "cv11", "ss01";
+    background-image: radial-gradient(circle at 90% -10%, rgb(108 92 231 / 0.18), transparent 34rem);
+  }
+
+  /* Visible focus states everywhere — WCAG requirement, never suppressed. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+  }
+}
